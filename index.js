@@ -93,7 +93,7 @@ const box = root => {
         if (cfg.injectSelf) {
             pushToSet(cfg.dependencies, cfg.name);
         }
-        return Object.assign({childrenConfigs: {}}, cfg);
+        return Object.assign({childrenConfigs: {}, skip: []}, cfg);
     };
 
     const resultMap = {};
@@ -111,6 +111,7 @@ const box = root => {
             dependencies,
             camelCaseKey,
             filter,
+            skip,
             capitalizeInitial: {module: capitalizeInitial}
         } = ctxCfg;
         sortedCtxNames.push(name);
@@ -127,6 +128,9 @@ const box = root => {
         const handler = ({name}, fn) => {
             name = getKey(name, {camelCaseKey, capitalizeInitial});
             const cfg = Object.assign({mergeDependencies: false}, ctxCfg.childrenConfigs[name]);
+            if (skip.length && skip.indexOf(name) >= 0) {
+                return;
+            }
             if (fn && !fn.skip) {
                 fns[name] = fn;
 

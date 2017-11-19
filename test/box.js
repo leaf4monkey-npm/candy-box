@@ -210,4 +210,16 @@ describe('box()', () => {
             '`one-way dependency` is turned on, `Services` cannot be a dependencies to `DAOs`'
         );
     });
+
+    it('with `config.context.${dir}.skip` set', () => {
+        const resultMap = box(getBaseConfig({
+            capitalizeInitial: true,
+            context: {
+                dao: {name: daoKey},
+                services: {skip: ['User']}
+            }
+        }));
+        assert.notProperty(resultMap.Services, userKey);
+        assert.property(resultMap.Services, messageKey);
+    });
 });
