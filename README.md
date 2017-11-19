@@ -98,5 +98,5 @@ Manage your modules classify, and provide Dependency Injection for them.
     const loader = require('candy-box');
     const path = require('path');
 
-    loader(path.resolve('.')); // Assume you `candyboxrc.json` file is in the root path of your project.
+    loader(path.resolve('.')); // Assume you `candyboxrc.json` file is in the current path.
     ```
