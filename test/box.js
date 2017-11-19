@@ -150,6 +150,22 @@ describe('box()', () => {
         nonDepsAsserts(dependenciesMap);
     });
 
+    it('with `config.context.${dir}.injectSelf` is false', () => {
+        const resultMap = box(getBaseConfig({
+            context: {
+                dao: {
+                    injectSelf: false,
+                    name: daoKey
+                },
+                services: {
+                    injectSelf: false,
+                }
+            }
+        }));
+        const {dependenciesMap} = getMaps(resultMap);
+        nonDepsAsserts(dependenciesMap);
+    });
+
     it('with `config.capitalizeInitial.module` is false', () => {
         userKey = 'user';
         messageKey = 'message';
