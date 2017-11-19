@@ -1,0 +1,27 @@
+{
+  "name": "candy-box",
+  "version": "0.0.1",
+  "description": "Manage your modules classify, and provide Dependency Injection for them.",
+  "main": "index.js",
+  "repository": "https://github.com/leaf4monkey-npm/candy-box.git",
+  "author": "leaf4monkey <joc98@163.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha",
+    "watch": "mocha -w --recursive",
+    "lint": "eslint .",
+    "prepublishOnly": "npm test && npm run lint"
+  },
+  "dependencies": {
+    "gnat-dir-loader": "^0.1.2",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.get": "^4.4.2",
+    "lodash.set": "^4.3.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.11.0",
+    "lodash": "^4.17.4",
+    "mocha": "^4.0.1"
+  }
+}

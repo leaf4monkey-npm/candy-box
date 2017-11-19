@@ -1,0 +1,24 @@
+{
+  "injectSelf": true,
+  "capitalizeInitial": {
+    "module": true,
+    "contextKey": true
+  },
+  "camelCaseKey": true,
+  "oneWayDependency": true,
+  "context": {
+    "dao": {
+      "dependencies": ["Services"],
+      "name": "DAOs"
+    },
+    "services": {
+      "dependencies": ["DAOs"],
+      "childrenConfigs": {
+        "User": {
+          "dependencies": ["DAOs.User"],
+          "mergeDependencies": false
+        }
+      }
+    }
+  }
+}
