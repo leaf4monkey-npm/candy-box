@@ -1,19 +1,19 @@
 {
   "injectSelf": true,
   "capitalizeInitial": {
-    "module": true,
-    "contextKey": true
+    "candy": true,
+    "trellis": true
   },
   "camelCaseKey": true,
   "oneWayDependency": false,
-  "context": {
+  "trellises": {
     "./dao": {
       "dependencies": ["Services"],
       "name": "DAOs"
     },
     "./services": {
       "dependencies": ["DAOs"],
-      "childrenConfigs": {
+      "candies": {
         "User": {
           "dependencies": ["DAOs.User"],
           "mergeDependencies": false

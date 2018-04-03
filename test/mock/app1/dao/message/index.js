@@ -9,7 +9,7 @@ module.exports = function (ctx) {
         if (/[iI]nitialized/.test(key)) {
             return;
         }
-        assert.isEmpty(ctx[key]);
+        assert.isEmpty(Object.keys(ctx[key]).filter(k => ctx[k]));
     });
     ctx.onInitialized(function () {
         assert.equal(ctx.initialized, true);
