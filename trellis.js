@@ -69,10 +69,15 @@ class Trellis {
         loader(this.dir, opts);
     }
 
+    initDeps () {
+        this.candyNames.forEach(name => this.candies[name].initDeps());
+    }
+
     injectJuice () {
         this.candyNames.forEach(name => {
             const candy = this.candies[name];
             candy.injectJuice();
+            // 如果没有提前设定配额，则该行代码会初始化 `this.tree`
             this.tree[name] = candy.obj;
         });
     }
@@ -106,8 +111,11 @@ class Trellis {
             return;
         }
 
-        this.candies[name] = new Candy(this, cfg, candyExports);
+        const candy = new Candy(this, cfg, candyExports);
+        this.candies[name] = candy;
         this.candyNames.push(name);
+        // 如果提前设定配额，则该行代码会初始化 `this.tree`
+        this.tree[name] = candy.obj;
     }
 }
 

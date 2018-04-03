@@ -26,7 +26,8 @@ const parseConfig = config => {
         injectSelf: true,
         oneWayDependency: true,
         capitalizeInitial: true,
-        camelCaseKey: true
+        camelCaseKey: true,
+        setQuota: true,
     }, config);
     config.context = config.context || config.trellises;
     config.trellises = config.context;
@@ -89,6 +90,7 @@ class Box {
     _fillTrellises (cfg) {
         this.trellisesPaths.forEach(path => this._tagTrellis(new Trellis(this, path, cfg[path])));
         this.trellisesNames.forEach(name => this.getTrellis(name).fillCandies());
+        this.trellisesNames.forEach(name => this.getTrellis(name).initDeps());
         this.trellisesNames.forEach(name => this.getTrellis(name).injectJuice());
         this._initializedDone();
     }

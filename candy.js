@@ -42,8 +42,10 @@ class Candy {
         this.trellis = trellis;
         this._initializeFn = fn;
         this.config = cfg;
+        if (cfg.setQuota) {
+            this.obj = {};
+        }
         this._setDependencies();
-        this._dependenciesTree = this._initDeps();
     }
 
     _bindCtx () {
@@ -98,7 +100,7 @@ class Candy {
         }
     }
 
-    _initDeps () {
+    initDeps () {
         const {box} = this;
         const tree = {
             get initialized () {
@@ -127,6 +129,7 @@ class Candy {
             });
         });
 
+        this._dependenciesTree = tree;
         return tree;
     }
 
@@ -135,7 +138,15 @@ class Candy {
             this.obj = this._initializeFn;
             return;
         }
-        this.obj = this._initializeFn(this._dependenciesTree);
+        const obj = this._initializeFn(this._dependenciesTree);
+        if (this.obj) {
+            Object.assign(
+                this.obj,
+                obj
+            )
+        } else {
+            this.obj = obj;
+        }
         this._bindCtx();
     }
 
