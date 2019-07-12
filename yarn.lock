@@ -233,9 +233,9 @@ diff@3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.3.1.tgz#aa8567a6eed03c531fc89d3f711cd0e5259dec75"
 
-dir-traverse@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/dir-traverse/-/dir-traverse-0.1.3.tgz#ac92c526a7223c45ae54879821deee3f5dc867fd"
+dir-traverse@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/dir-traverse/-/dir-traverse-0.1.4.tgz#b7d711f38d3b34f9bb9a11d6e175e68384922083"
   dependencies:
     fs "^0.0.1-security"
     path "^0.12.7"
@@ -416,11 +416,11 @@ globby@^5.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-gnat-dir-loader@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/gnat-dir-loader/-/gnat-dir-loader-0.1.2.tgz#d16011a4f53f08f71a8d3c1b676d42ecbaf853a6"
+gnat-dir-loader@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/gnat-dir-loader/-/gnat-dir-loader-0.1.3.tgz#3ccca9245d176ebfb204852a845ba5248d739acf"
   dependencies:
-    dir-traverse "^0.1.3"
+    dir-traverse "^0.1.4"
 
 graceful-fs@^4.1.2:
   version "4.1.11"
@@ -562,13 +562,17 @@ lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
 
+lodash.omit@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
+
 lodash.set@^4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
 
-lodash@^4.17.4, lodash@^4.3.0:
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+lodash@>=4.17.11, lodash@^4.17.4, lodash@^4.3.0:
+  version "4.17.13"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.13.tgz#0bdc3a6adc873d2f4e0c4bac285df91b64fc7b93"
 
 lru-cache@^4.0.1:
   version "4.1.1"
